@@ -68,6 +68,7 @@
     audio.pause();
     audio.removeAttribute('src');
     $('title').textContent = '—';
+    $('readLink').classList.add('hidden');
     updatePlayButton();
   }
 
@@ -78,6 +79,8 @@
     const s = stories[index];
     audio.src = s.audio;
     $('title').textContent = s.title;
+    $('readLink').classList.toggle('hidden', !s.url);
+    if (s.url) $('readLink').href = s.url;
     document.title = `${s.title} · Sleep Story`;
     renderList();
     const active = $('list').children[index];

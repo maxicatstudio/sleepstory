@@ -5,6 +5,7 @@ Web app nghe truyện tiếng Anh từ [The Fable Cottage](https://www.thefablec
 - Mở trang là tự phát truyện đầu tiên; hết truyện tự phát truyện tiếp theo, hết danh sách thì quay lại từ đầu.
 - Công tắc **Tự chuyển bài**: BẬT thì phát lần lượt cả danh sách; TẮT thì phát lại truyện đang nghe.
 - **Hẹn giờ tắt**: 30 phút, 1 giờ, 2 giờ hoặc số phút tùy chỉnh. Âm lượng giảm dần trong 30 giây cuối rồi dừng. Bấm lại nút đang chọn để hủy.
+- Link **📖 Xem truyện chữ** mở trang truyện gốc ở tab mới; audio vẫn tiếp tục phát.
 - Có thể thêm truyện thủ công (tên + link audio), lưu trong trình duyệt.
 
 ## Lấy danh sách truyện

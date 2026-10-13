@@ -28,3 +28,9 @@ python3 -m http.server 8000
 
 Lưu ý: trình duyệt thường chặn tự phát âm thanh khi chưa có thao tác của người dùng.
 Khi bị chặn, app hiện nút "Bấm để bắt đầu nghe"; sau đó phát và chuyển bài tự động như bình thường.
+
+## Host trên GitHub Pages
+
+Vào **Settings → Pages**, mục *Build and deployment* chọn **Deploy from a branch**,
+chọn nhánh chứa code, thư mục `/ (root)`, rồi bấm **Save**.
+Sau 1–2 phút web chạy tại `https://maxicatstudio.github.io/sleepstory/`.

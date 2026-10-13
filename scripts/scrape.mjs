@@ -7,12 +7,14 @@
 //
 // Audio vẫn được phát trực tiếp từ server của The Fable Cottage, script không tải file về.
 
-import { writeFile } from 'node:fs/promises';
+import { writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
 const ORIGIN = process.env.FABLE_ORIGIN || 'https://www.thefablecottage.com';
-const INDEX_PAGES = ['/english', '/english/'];
+const INDEX_PAGES = ['/languages/english'];
+const MAX_INDEX_PAGES = 30;
 const OUT = fileURLToPath(new URL('../stories.json', import.meta.url));
+const DEBUG_DIR = fileURLToPath(new URL('../debug/', import.meta.url));
 const headers = {
   'User-Agent': 'Mozilla/5.0 (sleepstory scraper)',
   ...(process.env.FABLE_COOKIE ? { Cookie: process.env.FABLE_COOKIE } : {}),
@@ -35,15 +37,35 @@ function storyLinks(html, base) {
   for (const [, href] of html.matchAll(/href=["']([^"'#?]+)["']/gi)) {
     const u = new URL(href, base);
     if (u.origin !== new URL(ORIGIN).origin) continue;
-    // Trang truyện có dạng /english/<ten-truyen>
-    if (/^\/english\/[^/]+\/?$/.test(u.pathname)) links.add(u.origin + u.pathname.replace(/\/$/, ''));
+    // Trang truyện có dạng /fables/<ten-truyen>
+    if (/^\/fables\/[^/]+\/?$/.test(u.pathname)) links.add(u.origin + u.pathname.replace(/\/$/, ''));
   }
   return [...links];
 }
 
+// Link sang trang tiếp theo của danh sách (?page=2, /page/2 ...)
+function pageLinks(html, base) {
+  const links = new Set();
+  for (const [, href] of html.matchAll(/href=["']([^"'#]+)["']/gi)) {
+    const u = new URL(decode(href), base);
+    if (u.pathname.startsWith('/languages/english') && /[?&]page=\d+|\/page\/\d+/.test(u.pathname + u.search)) {
+      links.add(u.href);
+    }
+  }
+  return [...links];
+}
+
+async function saveDebug(name, html) {
+  await mkdir(DEBUG_DIR, { recursive: true });
+  await writeFile(DEBUG_DIR + name, html);
+  console.log(`  (đã lưu HTML vào debug/${name})`);
+}
+
 function findAudio(html, base) {
+  html = html.replace(/\\\//g, '/'); // URL trong JSON dạng https:\/\/...
   const candidates = [
     ...html.matchAll(/<(?:audio|source)[^>]+src=["']([^"']+)["']/gi),
+    ...html.matchAll(/data-(?:src|audio|url)=["']([^"']+?\.(?:mp3|m4a|ogg)[^"']*)["']/gi),
     ...html.matchAll(/["'](https?:\/\/[^"'\s]+?\.(?:mp3|m4a|ogg)(?:\?[^"'\s]*)?)["']/gi),
     ...html.matchAll(/["']([^"'\s]+?\.mp3(?:\?[^"'\s]*)?)["']/gi),
   ].map((m) => new URL(decode(m[1]), base).href);
@@ -64,8 +86,22 @@ async function main() {
   }
   if (!index) throw new Error('Không mở được trang danh sách truyện tiếng Anh');
 
-  const links = storyLinks(index.html, index.url);
-  console.log(`Tìm thấy ${links.length} trang truyện`);
+  const links = new Set(storyLinks(index.html, index.url));
+  const seenPages = new Set([index.url]);
+  const queue = pageLinks(index.html, index.url);
+  while (queue.length && seenPages.size < MAX_INDEX_PAGES) {
+    const p = queue.shift();
+    if (seenPages.has(p)) continue;
+    seenPages.add(p);
+    try {
+      const page = await get(p);
+      storyLinks(page.html, page.url).forEach((l) => links.add(l));
+      queue.push(...pageLinks(page.html, page.url));
+    } catch (e) { console.warn('Bỏ qua', e.message); }
+  }
+  console.log(`Tìm thấy ${links.size} trang truyện`);
+  if (!links.size) await saveDebug('index.html', index.html);
+  let savedNoAudio = false;
 
   const stories = [];
   for (const link of links) {
@@ -78,6 +114,7 @@ async function main() {
         console.log('✓', title);
       } else {
         console.log('– không có audio (có thể cần tài khoản):', title);
+        if (!savedNoAudio) { savedNoAudio = true; await saveDebug('no-audio.html', page.html); }
       }
     } catch (e) {
       console.warn('✗', e.message);

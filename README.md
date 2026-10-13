@@ -15,7 +15,7 @@ node scripts/scrape.mjs
 FABLE_COOKIE="..." node scripts/scrape.mjs
 ```
 
-Script đọc trang `/english`, mở từng trang truyện, lấy tên và link audio rồi ghi vào `stories.json`.
+Script đọc trang `/languages/english` (kể cả các trang phân trang), mở từng trang truyện, lấy tên và link audio rồi ghi vào `stories.json`.
 Audio vẫn được phát trực tiếp từ server của The Fable Cottage; script không tải file về.
 Cần Node 18 trở lên.
 

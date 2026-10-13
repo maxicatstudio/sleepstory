@@ -150,18 +150,58 @@
     "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rapunzel-part4.mp3"
   },
   {
-    "title": "Cinderella",
+    "title": "Cinderella (Part 1)",
     "url": "https://www.thefablecottage.com/fables/cinderella",
     "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/cinderella-enb-part1.mp3"
   },
   {
-    "title": "The Three Billy Goats Gruff",
+    "title": "Cinderella (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/cinderella-2",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/cinderella-enb-part2.mp3"
+  },
+  {
+    "title": "Cinderella (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/cinderella-3",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/cinderella-enb-part3.mp3"
+  },
+  {
+    "title": "Cinderella (Part 4)",
+    "url": "https://www.thefablecottage.com/fables/cinderella-4",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/cinderella-enb-part4.mp3"
+  },
+  {
+    "title": "The Three Billy Goats Gruff (Part 1)",
     "url": "https://www.thefablecottage.com/fables/the-three-billy-goats-gruff",
     "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/goats-enb-part1.mp3"
   },
   {
-    "title": "Hansel and Gretel",
+    "title": "The Three Billy Goats Gruff (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/the-three-billy-goats-gruff-2",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/goats-enb-part2.mp3"
+  },
+  {
+    "title": "The Three Billy Goats Gruff (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/the-three-billy-goats-gruff-3",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/goats-enb-part3.mp3"
+  },
+  {
+    "title": "Hansel and Gretel (Part 1)",
     "url": "https://www.thefablecottage.com/fables/hansel-and-gretel",
     "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/hg-enb-part1.mp3"
+  },
+  {
+    "title": "Hansel and Gretel (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/hansel-and-gretel-2",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/hg-enb-part2.mp3"
+  },
+  {
+    "title": "Hansel and Gretel (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/hansel-and-gretel-3",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/hg-enb-part3.mp3"
+  },
+  {
+    "title": "Hansel and Gretel (Part 4)",
+    "url": "https://www.thefablecottage.com/fables/hansel-and-gretel-4",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/hg-enb-part4.mp3"
   }
 ]

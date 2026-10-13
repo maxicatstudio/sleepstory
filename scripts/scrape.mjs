@@ -9,6 +9,7 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
+import { resolve } from 'node:path';
 
 const ORIGIN = process.env.FABLE_ORIGIN || 'https://www.thefablecottage.com';
 const INDEX_PAGES = ['/languages/english'];
@@ -28,6 +29,8 @@ async function get(path) {
 }
 
 const decode = (s) => s
+  .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+  .replace(/&#(\d+);/g, (_, d) => String.fromCodePoint(Number(d)))
   .replace(/&amp;/g, '&').replace(/&#0?39;|&apos;/g, "'").replace(/&quot;/g, '"')
   .replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&nbsp;/g, ' ')
   .replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
@@ -79,6 +82,32 @@ function findTitle(html) {
   return decode((h1 && h1[1]) || (og && og[1]) || (t && t[1]) || '').replace(/\s*[|–-]\s*The Fable Cottage.*$/i, '');
 }
 
+// Truyện nhiều phần có URL dạng <slug>, <slug>-2, <slug>-3 ... và bản gộp <slug>-full.
+// Xếp các phần đúng thứ tự, đánh số "(Part n)" và bỏ bản gộp để không nghe trùng.
+export function organize(stories) {
+  const groups = new Map();
+  for (const s of stories) {
+    const slug = new URL(s.url).pathname.split('/').pop();
+    const m = slug.match(/^(.*?)(?:-(full)|-(\d+))?$/);
+    const key = m[1];
+    const part = m[2] ? 'full' : Number(m[3] || 1);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push({ ...s, part });
+  }
+  const out = [];
+  for (const items of groups.values()) {
+    const parts = items.filter((s) => s.part !== 'full').sort((a, b) => a.part - b.part);
+    if (parts.length > 1) {
+      parts.forEach(({ part, ...s }) => out.push({ ...s, title: `${s.title} (Part ${part})` }));
+    } else {
+      // Chỉ có 1 phần: ưu tiên bản gộp nếu có
+      const { part, ...s } = items.find((x) => x.part === 'full') || parts[0];
+      out.push(s);
+    }
+  }
+  return out;
+}
+
 async function main() {
   let index;
   for (const p of INDEX_PAGES) {
@@ -121,8 +150,10 @@ async function main() {
     }
   }
 
-  await writeFile(OUT, JSON.stringify(stories, null, 2) + '\n');
-  console.log(`\nĐã ghi ${stories.length} truyện vào stories.json`);
+  const list = organize(stories);
+  await writeFile(OUT, JSON.stringify(list, null, 2) + '\n');
+  console.log(`\nĐã ghi ${list.length} truyện vào stories.json`);
 }
 
-main().catch((e) => { console.error(e.message); process.exit(1); });
+const isMain = process.argv[1] && resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase();
+if (isMain) main().catch((e) => { console.error(e.message); process.exit(1); });

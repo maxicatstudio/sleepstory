@@ -1,1 +1,167 @@
-[]
+[
+  {
+    "title": "The Happy Prince",
+    "url": "https://www.thefablecottage.com/fables/the-happy-prince",
+    "audio": "https://media.thefablecottage.com/stories/enb-happyprince-128-v1.mp3"
+  },
+  {
+    "title": "The Little Red Hen",
+    "url": "https://www.thefablecottage.com/fables/the-little-red-hen",
+    "audio": "https://media.thefablecottage.com/stories/ena-redhen-128.mp3"
+  },
+  {
+    "title": "The Oak Tree",
+    "url": "https://www.thefablecottage.com/fables/the-oak-tree",
+    "audio": "https://media.thefablecottage.com/stories/ena-oaktree-128.mp3"
+  },
+  {
+    "title": "The Bear and the Bee",
+    "url": "https://www.thefablecottage.com/fables/the-bear-and-the-bee",
+    "audio": "https://media.thefablecottage.com/stories/ena-beebear-128.mp3"
+  },
+  {
+    "title": "The Wind and the Sun",
+    "url": "https://www.thefablecottage.com/fables/the-wind-and-the-sun",
+    "audio": "https://media.thefablecottage.com/stories/ena-wind-and-sun-128.mp3"
+  },
+  {
+    "title": "Jack and the Beanstalk (Part 1)",
+    "url": "https://www.thefablecottage.com/fables/jack-and-the-beanstalk",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/jack-enb-ch1.mp3"
+  },
+  {
+    "title": "Jack and the Beanstalk (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/jack-and-the-beanstalk-2",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/jack-enb-ch2.mp3"
+  },
+  {
+    "title": "Jack and the Beanstalk (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/jack-and-the-beanstalk-3",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/jack-enb-ch3.mp3"
+  },
+  {
+    "title": "The Girl and the Ice Cream Truck",
+    "url": "https://www.thefablecottage.com/fables/the-girl-and-the-ice-cream-truck",
+    "audio": "https://media.thefablecottage.com/stories/ena-icecream-128.mp3"
+  },
+  {
+    "title": "The City Mouse and the Country Mouse",
+    "url": "https://www.thefablecottage.com/fables/city-mouse-and-country-mouse",
+    "audio": "https://media.thefablecottage.com/stories/ena-mouse-128.mp3"
+  },
+  {
+    "title": "The Dog and his Bone",
+    "url": "https://www.thefablecottage.com/fables/the-dog-and-his-bone",
+    "audio": "https://media.thefablecottage.com/stories/ena-dogbone-128.mp3"
+  },
+  {
+    "title": "The Frightened Lion",
+    "url": "https://www.thefablecottage.com/fables/the-frightened-lion",
+    "audio": "https://media.thefablecottage.com/stories/ena-frightened-lion-128.mp3"
+  },
+  {
+    "title": "The Fox and the Crow",
+    "url": "https://www.thefablecottage.com/fables/the-fox-and-the-crow",
+    "audio": "https://media.thefablecottage.com/stories/ena-foxcrow-128.mp3"
+  },
+  {
+    "title": "Chicken Little",
+    "url": "https://www.thefablecottage.com/fables/chicken-little",
+    "audio": "https://media.thefablecottage.com/stories/enb-chicken.mp3"
+  },
+  {
+    "title": "The Bird and the Whale",
+    "url": "https://www.thefablecottage.com/fables/the-bird-and-the-whale",
+    "audio": "https://media.thefablecottage.com/stories/birdandwhale-al.mp3"
+  },
+  {
+    "title": "Snow White (Part 1)",
+    "url": "https://www.thefablecottage.com/fables/snow-white",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-sw-ch1.mp3"
+  },
+  {
+    "title": "Snow White (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/snow-white-2",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-sw-ch2.mp3"
+  },
+  {
+    "title": "Snow White (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/snow-white-3",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-sw-ch3.mp3"
+  },
+  {
+    "title": "Snow White (Part 4)",
+    "url": "https://www.thefablecottage.com/fables/snow-white-4",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-sw-ch4.mp3"
+  },
+  {
+    "title": "Rumpelstiltskin (Part 1)",
+    "url": "https://www.thefablecottage.com/fables/rumpelstiltskin",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rumpel-ch1.mp3"
+  },
+  {
+    "title": "Rumpelstiltskin (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/rumpelstiltskin-2",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rumpel-ch2.mp3"
+  },
+  {
+    "title": "Rumpelstiltskin (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/rumpelstiltskin-3",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rumpel-ch3.mp3"
+  },
+  {
+    "title": "Rumpelstiltskin (Part 4)",
+    "url": "https://www.thefablecottage.com/fables/rumpelstiltskin-4",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rumpel-ch4.mp3"
+  },
+  {
+    "title": "The Emperor's New Clothes (Part 1)",
+    "url": "https://www.thefablecottage.com/fables/the-emperors-new-clothes",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/en-emperor-ch1.mp3"
+  },
+  {
+    "title": "The Emperor's New Clothes (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/the-emperors-new-clothes-2",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/en-emperor-ch2.mp3"
+  },
+  {
+    "title": "The Emperor's New Clothes (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/the-emperors-new-clothes-3",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/en-emperor-ch3.mp3"
+  },
+  {
+    "title": "Rapunzel (Part 1)",
+    "url": "https://www.thefablecottage.com/fables/rapunzel-en",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rapunzel-part1.mp3"
+  },
+  {
+    "title": "Rapunzel (Part 2)",
+    "url": "https://www.thefablecottage.com/fables/rapunzel-en-2",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rapunzel-part2.mp3"
+  },
+  {
+    "title": "Rapunzel (Part 3)",
+    "url": "https://www.thefablecottage.com/fables/rapunzel-en-3",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rapunzel-part3.mp3"
+  },
+  {
+    "title": "Rapunzel (Part 4)",
+    "url": "https://www.thefablecottage.com/fables/rapunzel-en-4",
+    "audio": "https://media.thefablecottage.com/stories/enxrtc69ttwa/enb-rapunzel-part4.mp3"
+  },
+  {
+    "title": "Cinderella",
+    "url": "https://www.thefablecottage.com/fables/cinderella",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/cinderella-enb-part1.mp3"
+  },
+  {
+    "title": "The Three Billy Goats Gruff",
+    "url": "https://www.thefablecottage.com/fables/the-three-billy-goats-gruff",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/goats-enb-part1.mp3"
+  },
+  {
+    "title": "Hansel and Gretel",
+    "url": "https://www.thefablecottage.com/fables/hansel-and-gretel",
+    "audio": "https://media.thefablecottage.com/stories/envol16hs9kv2/hg-enb-part1.mp3"
+  }
+]

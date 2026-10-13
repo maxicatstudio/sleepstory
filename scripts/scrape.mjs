@@ -128,6 +128,20 @@ async function main() {
       queue.push(...pageLinks(page.html, page.url));
     } catch (e) { console.warn('Bỏ qua', e.message); }
   }
+  // Trang danh sách không phải lúc nào cũng link tới các phần sau / bản gộp.
+  // Thử thêm <slug>-full và <slug>-2, -3 ... cho tới khi gặp trang không tồn tại.
+  for (const link of [...links]) {
+    if (/-(full|\d+)$/.test(link)) continue;
+    const extra = [`${link}-full`];
+    for (let n = 2; n <= 10; n++) extra.push(`${link}-${n}`);
+    for (const url of extra) {
+      if (links.has(url)) continue;
+      const res = await fetch(url, { method: 'HEAD', headers, redirect: 'follow' }).catch(() => null);
+      const path = (u) => new URL(u).pathname.replace(/\/$/, '');
+      if (res && res.ok && path(res.url) === path(url)) links.add(url);
+      else if (!url.endsWith('-full')) break;
+    }
+  }
   console.log(`Tìm thấy ${links.size} trang truyện`);
   if (!links.size) await saveDebug('index.html', index.html);
   let savedNoAudio = false;

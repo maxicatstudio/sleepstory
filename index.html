@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sleep Story</title>
+  <meta name="theme-color" content="#0f1226">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>🌙 Sleep Story</h1>
+      <p class="sub">Truyện tiếng Anh từ The Fable Cottage</p>
+    </header>
+
+    <section class="now card">
+      <div class="label">Đang phát</div>
+      <div id="title" class="title">—</div>
+      <div class="progress">
+        <span id="cur">0:00</span>
+        <input id="seek" type="range" min="0" max="100" value="0" step="0.1" aria-label="Tua">
+        <span id="dur">0:00</span>
+      </div>
+      <div class="controls">
+        <button id="prev" class="icon" aria-label="Truyện trước">⏮</button>
+        <button id="play" class="icon big" aria-label="Phát / Tạm dừng">▶</button>
+        <button id="next" class="icon" aria-label="Truyện sau">⏭</button>
+      </div>
+      <label class="toggle">
+        <input id="autoNext" type="checkbox" checked>
+        <span class="slider"></span>
+        <span class="toggle-text">Tự chuyển bài <b id="autoNextState">BẬT</b></span>
+      </label>
+      <p class="hint" id="autoNextHint">Hết truyện sẽ phát truyện tiếp theo, lặp lại từ đầu danh sách.</p>
+    </section>
+
+    <section class="card">
+      <div class="label">Hẹn giờ tắt</div>
+      <div class="timers">
+        <button class="chip" data-min="30">30 phút</button>
+        <button class="chip" data-min="60">1 giờ</button>
+        <button class="chip" data-min="120">2 giờ</button>
+        <button class="chip" id="customBtn">Tùy chỉnh</button>
+      </div>
+      <form id="customForm" class="custom hidden">
+        <input id="customMin" type="number" min="1" max="1440" placeholder="Số phút" inputmode="numeric">
+        <button type="submit" class="chip">Đặt</button>
+      </form>
+      <div id="timerStatus" class="timer-status hidden">
+        Tắt sau <b id="timerLeft">0:00</b>
+        <button id="timerCancel" class="link">Hủy</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="label">Danh sách truyện (<span id="count">0</span>)</div>
+      <ol id="list" class="list"></ol>
+      <p id="empty" class="hint hidden">
+        Chưa có truyện. Chạy <code>node scripts/scrape.mjs</code> để tạo <code>stories.json</code>,
+        hoặc thêm link audio bên dưới.
+      </p>
+      <details class="add">
+        <summary>Thêm truyện thủ công</summary>
+        <form id="addForm">
+          <input id="addTitle" placeholder="Tên truyện" required>
+          <input id="addUrl" type="url" placeholder="Link audio (.mp3)" required>
+          <button type="submit" class="chip">Thêm</button>
+        </form>
+      </details>
+    </section>
+  </main>
+
+  <div id="startOverlay" class="overlay hidden">
+    <button id="startBtn" class="start">▶ Bấm để bắt đầu nghe</button>
+    <p>Trình duyệt chặn tự phát âm thanh cho tới khi bạn chạm vào trang.</p>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+  <script src="app.js"></script>
+</body>
+</html>
